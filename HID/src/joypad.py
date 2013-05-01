@@ -47,6 +47,7 @@ try:
 		
 	def loop():
 		global d, t, x, y
+
 		while pygame.event.get(pygame.QUIT) == []:
 			xy =pygame.event.get(pygame.JOYAXISMOTION)
 			#xy_True=[] # call the infomation to
@@ -55,7 +56,7 @@ try:
 				xy_data = []
 				for c in range(0, d.get_numaxes()):
 					xy_data+= [str(round(d.get_axis(c),1))]
-					x = x + int(xy_data[0])
+					x = x + int(float(xy_data[0]))
 					print x
 					#xy_True+= [int(xy_data)]
 #     					if xy_data[0] == "1.0":
@@ -94,9 +95,7 @@ try:
 	loop()
 
 except Exception, e:
-	print "stuff went wrong: %s"%e
-	print "No device found"
-	print "Please insert device and try agian" 
+	print "Unhandled exception: %s"%e
 	print "Shutting down now"
 
 #Nicklas Jensen
