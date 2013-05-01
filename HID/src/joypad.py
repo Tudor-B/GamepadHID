@@ -3,13 +3,16 @@
 
 import os
 import pygame 
-import win32api
-import win32con 
+#import win32api
+#import win32con 
 import sys		# Imports pygame library that are made for developing games
+from MouseInterface import MouseInterface
 
 value = 10
 pygame.init()			# Starts pygame
 t = pygame.time.Clock()		# Make a tracker
+
+mouse = MouseInterface()
 
 # TODO: change the default value to something dynamic
 x=768
@@ -35,15 +38,15 @@ try:
 	
 # Start showing the info in terminal
 		
-	def Lclick(x, y):
-		
-		win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x, y)
-		win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x, y)
-		
-	def Rclick(x, y):
-		
-		win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN,x, y)
-		win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP,x, y)
+# 	def Lclick(x, y):
+# 		
+# 		win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x, y)
+# 		win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x, y)
+# 		
+# 	def Rclick(x, y):
+# 		
+# 		win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN,x, y)
+# 		win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP,x, y)
 		
 	def loop():
 		global d, t, x, y
@@ -67,8 +70,9 @@ try:
 					#	y=y+1
 					#if xy_data[1] == "-1.0":
 					#	y=y-1
-						
-				win32api.SetCursorPos((x, y))
+				
+				mouse.SetPosition( x, y )
+# 				win32api.SetCursorPos((x, y))
 				print "Works?"
 				print xy_data
 				
@@ -81,9 +85,9 @@ try:
 				if button.button == 0:			# The exit button
 					return
 				elif button.button == 2:
-					Lclick(x,y)
+					mouse.ClickLeft()
 				elif button.button == 3:
-					Rclick(x,y)
+					mouse.ClickRight()
 			
 				print (pygame.mouse.get_pos())
 		
