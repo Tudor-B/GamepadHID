@@ -69,9 +69,9 @@ try:
 				if button.button == 0:			# The exit button
 					return
 				elif button.button == 2:
-					mouse.ClickLeft_Down()
+					mouse.Click_Down('left')
 				elif button.button == 3:
-					mouse.ClickRight_Down()
+					mouse.Click_Down('right')
 				elif button.button == 4:
 					keyboard.KeyUp_Down()
 				elif button.button == 5:
@@ -88,9 +88,9 @@ try:
 			for button in upbutton:
 				print "Button released was", button.button
 				if button.button == 2:
-					mouse.ClickLeft_Up()
+					mouse.Click_Up('left')
 				elif button.button == 3:
-					mouse.ClickRight_Up()
+					mouse.Click_Up('right')
 				elif button.button == 4:
 					keyboard.KeyUp_Up()
 				elif button.button == 5:
