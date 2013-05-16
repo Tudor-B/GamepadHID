@@ -1,11 +1,10 @@
 '''
-Created on May 1, 2013
+Created on May 12, 2013
 
 @author: Tudor
 '''
-
-import win32api, win32con, pygame
-
+from pymouse import PyMouse
+m=pyMouse
 class MouseInterface(object):
     '''
     classdocs
@@ -19,28 +18,22 @@ class MouseInterface(object):
         pass
     
     def SetPosition(self, x, y):
-        win32api.SetCursorPos((x, y))
+        m.move((x, y))
         
     def GetPosition(self):
-        return win32api.GetCursorPos()
+        return m.position()
     
     def ClickLeft(self):
         #     def Lclick(x, y):
         x, y = self.GetPosition()
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,x, y)
-        win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x, y)
+        m.click(x,y,1)
          
     def ClickRight(self):
         x, y = self.GetPosition()
-        win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN,x, y)
-        win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP,x, y)
+        m.click(x,y,2)
         
     def SetRelPos(self, dx, dy ):
         x, y = self.GetPosition()
         y = y+6*dy
         x = x+6*dx
-        self.SetPosition(x, y)     
-    
- 
-           
-        
+        self.SetPosition(x, y)
