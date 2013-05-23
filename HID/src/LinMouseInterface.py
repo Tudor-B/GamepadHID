@@ -23,14 +23,18 @@ class MouseInterface(object):
     def GetPosition(self):
         return m.position()
     
-    def ClickLeft(self):
+    def Click_Up(self,argument):
         #     def Lclick(x, y):
         x, y = self.GetPosition()
-        m.click(x,y,1)
+        if argument == "left":
+        
+        elif argument =="right":
          
-    def ClickRight(self):
+    def Click_Down(self,argument):
         x, y = self.GetPosition()
-        m.click(x,y,2)
+        if argument == "left":
+        
+        elif argument =="right":
         
     def SetRelPos(self, dx, dy ):
         x, y = self.GetPosition()
