@@ -3,12 +3,12 @@ Created on May 12, 2013
 
 @author: Tudor
 '''
-from evdev import uinput, ecodes as e
+#from evdev import uinput, ecodes as e
 from subprocess import Popen, PIPE
 
-ui = uinput.UInput()
+#ui = uinput.UInput()
 class KBInterface(object):
-    ui = uinput.UInput()
+    #ui = uinput.UInput()
     def keypress(self,sequence):
         p = Popen(['xte'], stdin=PIPE)
         p.communicate(input=sequence)
