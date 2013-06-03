@@ -2,6 +2,7 @@
 
 import os
 import pygame
+import gui
 #import sys		# Imports pygame library that are made for developing games
 if os.name == 'nt':
 	from WinMouseInterface import MouseInterface
@@ -26,6 +27,7 @@ try:
 	d = pygame.joystick.Joystick(0)
 	d.init()			# Start pygame.joystick.Joystick(0)
 	rem = remapper(d.get_name())
+	maingui = gui.gui(rem)
 
 # Gives info about the device
 	print "Connected device", d.get_name()
@@ -63,7 +65,7 @@ try:
 				if button.button == rem.buttons['start']:			# The exit button
 					return
 				elif button.button == rem.buttons['select']:
-					interface.genEvent(rem.actions['select'], 'down')
+					maingui.Menu()
 				elif button.button == rem.buttons['up']:
 					interface.genEvent(rem.actions['up'], 'down')
 				elif button.button == rem.buttons['right']:
