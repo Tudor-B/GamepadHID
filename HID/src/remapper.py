@@ -27,7 +27,7 @@ class remapper():
         f = open(filename + '.txt')
         actions = {}
         for line in f:
-            line = line.split()
+            line = line.split(None,1)
             actions[line[0]] = line[1]
         return actions
     
@@ -35,7 +35,7 @@ class remapper():
         f = open(filename + '.txt','w')
         actions = self.actions
         for button in actions:
-            f.write(button + ' ' + actions.get(button) + '\n')
+            f.write(button + ' ' + actions.get(button))
     
     def mapButton(self,button,ID):
         self.buttons[button] = ID
