@@ -18,3 +18,6 @@ class Interface(object):
         elif action.find('Middle mouse') != -1:
             self.keypress('mouse' + updown + " " + str(2) + "\n")
         pass
+    def SetRelPos(self, dx, dy ):
+        print "arguments recieved: " + str(dx) + " " + str(dy)
+        self.keypress("mousermove " + str(dx) + " " + str(dy) + "\n")

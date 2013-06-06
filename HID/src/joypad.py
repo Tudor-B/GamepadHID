@@ -9,16 +9,12 @@ if os.name == 'nt':
 	from WinKBInterface import KBInterface
 	pass
 elif os.name == 'posix':
-	from LinMouseInterface import MouseInterface
-	from LinKBInterface import KBInterface
 	from linterface import Interface
 	pass
 from remapper import remapper
 
 pygame.init()			# Starts pygame
 t = pygame.time.Clock()		# Make a tracker
-keyboard = KBInterface()
-mouse = MouseInterface()
 interface = Interface()
 os.system('cls' if os.name=='nt' else 'clear') # Clear terminal // remove "there is no soundcard"
 try: 
@@ -57,7 +53,7 @@ try:
 # 			print "axis 2"
 # 			print xy_data[1]*20
 			#mouse.SetRelPos(int(float(xy_data[0])), int(float(xy_data[1])))
-			mouse.SetRelPos(int(d.get_axis(0)*20), int(d.get_axis(1)*20))
+			interface.SetRelPos(int(d.get_axis(0)*20), int(d.get_axis(1)*20))
 			# Button Part Down
 			downbutton = pygame.event.get(pygame.JOYBUTTONDOWN)
 			for button in downbutton:
