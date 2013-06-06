@@ -1,0 +1,12 @@
+triangle 0
+circle 1
+cross 2
+square 3
+L1 4
+R1 5
+L2 6
+R2 7
+select 8
+start 9
+L3 10
+R3 11

@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# Project Network - Logitech G27 / Xbox 360 controller and others
-
 import os
 import pygame
 import win32api, win32con 
@@ -26,11 +23,11 @@ mouse = MouseInterface()
 
 os.system('cls' if os.name=='nt' else 'clear') # Clear terminal // remove "there is no soundcard"
 try: 
-	
+
 	print "Number of Devices:", pygame.joystick.get_count()
 	d = pygame.joystick.Joystick(0)
 	d.init()			# Start pygame.joystick.Joystick(0)
-	
+
 
 # Gives info about the device
 	print "Connected device", d.get_name()
@@ -41,11 +38,11 @@ try:
 	print "Balls:", d.get_numballs()
 	print "The device ID is", d.get_id()
 	print "Press button 0 to exit"
-	
-# Start showing the info in terminal
-		
 
-		
+# Start showing the info in terminal
+
+
+
 	def loop():
 		global d, t
 
@@ -53,15 +50,15 @@ try:
 			xy =pygame.event.get(pygame.JOYAXISMOTION)
 			#xy_True=[] # call the infomation to
 		# Axes Part
-			
+
 			xy_data = []
 			for c in range(0, d.get_numaxes()):						#Mouse Movement
 				xy_data+= [str(round(d.get_axis(c),1))]
 
 			mouse.SetRelPos(int(float(xy_data[0])), int(float(xy_data[1])))
-					
+
 # 					
-			
+
 			# Button Part Down
 			downbutton = pygame.event.get(pygame.JOYBUTTONDOWN)
 			for button in downbutton:
@@ -80,9 +77,9 @@ try:
 					keyboard.KeyDown_Down()
 				elif button.button == 7:
 					keyboard.KeyLeft_Down()
-					
+
 				print (pygame.mouse.get_pos())
-		
+
 		# Button Part Up
 			upbutton = pygame.event.get(pygame.JOYBUTTONUP)
 			for button in upbutton:
@@ -105,5 +102,3 @@ try:
 except Exception, e:
 	print "Unhandled exception: %s"%e
 	print "Shutting down now"
-
-#Nicklas Jensen
