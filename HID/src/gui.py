@@ -12,7 +12,7 @@ class gui():
     def Menu(self):
         image   = "Gamepad.gif"
         msg     = "Gamepad Info"
-        choices = ["Back","Change buttons","Info(Not implemented)"]
+        choices = ["Back","Change buttons","Apply changes"]
         reply   = eg.buttonbox(msg,image=image,choices=choices)
         
         print ("You wanted to:", reply) 
@@ -24,6 +24,7 @@ class gui():
             print but, act
             self.remapper.mapAction(but,act)
         if reply == choices[2]:
+            self.remapper.writeActions(self.remapper.layout)
             pass
     
     def changefunc(self):

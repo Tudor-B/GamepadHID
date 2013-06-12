@@ -35,7 +35,7 @@ class remapper():
         f = open(filename + '.txt','w')
         actions = self.actions
         for button in actions:
-            f.write(button + ' ' + actions.get(button) + '\n')
+            f.write(button + ' ' + actions.get(button))
     
     def mapButton(self,button,ID):
         self.buttons[button] = ID

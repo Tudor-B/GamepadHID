@@ -1,13 +1,10 @@
-'''
-Created on Jun 4, 2013
+#!/usr/bin/python
 
-@author: Tudor
-'''
 import os
 import pygame
 import gui
 import math
-#import sys        # Imports pygame library that are made for developing games
+
 if os.name == 'nt':
     from Winterface import Interface
     pass
@@ -45,17 +42,7 @@ try:
 
         while pygame.event.get(pygame.QUIT) == []:
             xy =pygame.event.get(pygame.JOYAXISMOTION) #if this isnt here you cant press buttons?!
-            #xy_True=[] # call the infomation to
-        # Axes Part
 
-#             xy_data = []
-#             for c in range(0, d.get_numaxes()):                        #Mouse Movement
-#                 xy_data+= [d.get_axis(c)]
-#             print "axis 1"
-#             print xy_data[0]*20
-#             print "axis 2"
-#             print xy_data[1]*20
-#             interface.SetRelPos(int(float(xy_data[0])), int(float(xy_data[1])))
             if d.get_name()=="Generic   USB  Joystick  ":
                 interface.SetRelPos(int(math.ceil(d.get_axis(0))*10), int(math.ceil(d.get_axis(1)*10)))
             else:
@@ -66,9 +53,8 @@ try:
                 print "Pressed button is", button.button
                 if button.button == rem.buttons['start']:            # The exit button
                     return
-                elif button.button == int(rem.buttons['select']):
+                elif button.button == rem.buttons['select']:
                     maingui.Menu()
-                    print "AHAHAHA"
                 elif button.button == rem.buttons['up']:
                     interface.genEvent(rem.actions['up'], 'down')
                 elif button.button == rem.buttons['right']:
@@ -83,7 +69,7 @@ try:
                     interface.genEvent(rem.actions['square'], 'down')
                 elif button.button == rem.buttons['circle']:
                     interface.genEvent(rem.actions['circle'], 'down')
-                elif button.button == int(rem.buttons['cross']):
+                elif button.button == rem.buttons['cross']:
                     interface.genEvent(rem.actions['cross'], 'down')
                 elif button.button == rem.buttons['L1']:
                     interface.genEvent(rem.actions['L1'], 'down')
@@ -97,7 +83,6 @@ try:
                     interface.genEvent(rem.actions['R2'], 'down')
                 elif button.button == rem.buttons['R3']:
                     interface.genEvent(rem.actions['R3'], 'down')
-                #print (pygame.mouse.get_pos())
 
             # Button Part Up
             upbutton = pygame.event.get(pygame.JOYBUTTONUP)
@@ -121,7 +106,7 @@ try:
                     interface.genEvent(rem.actions['square'], 'up')
                 elif button.button == rem.buttons['circle']:
                     interface.genEvent(rem.actions['circle'], 'up')
-                elif button.button == int(rem.buttons['cross']):
+                elif button.button == rem.buttons['cross']:
                     interface.genEvent(rem.actions['cross'], 'up')
                 elif button.button == rem.buttons['L1']:
                     interface.genEvent(rem.actions['L1'], 'up')

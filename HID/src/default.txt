@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 right Right
 triangle None
 R1 None
@@ -14,3 +15,21 @@ L1 None
 circle None
 select None
 left Left
+=======
+right Right
+triangle None
+R1 None
+R2 None
+R3 None
+up Up
+cross None
+down Down
+start None
+square Tab
+L2 None
+L3 None
+L1 None
+circle None
+select None
+left Left
+>>>>>>> development
